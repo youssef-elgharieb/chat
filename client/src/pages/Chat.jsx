@@ -23,7 +23,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 import background from '../assets/background.svg'; // Replace with the actual path to your SVG file
 
 const ORIGIN = import.meta.env.VITE_ORIGIN
-console.log(import.meta.env.VITE_ORIGIN);
 
 function Chat() {
   const navigate = useNavigate();
@@ -75,7 +74,6 @@ function Chat() {
 
     socketRef.current.on('joined', (participant) => {
 
-      console.log(participant, ' joined');
       let temp = {
         room: room,
         participants: [...chatRef.current.participants],
@@ -92,14 +90,12 @@ function Chat() {
     socketRef.current.on('receive', (message) => {
 
 
-      console.log("receiving");
       let temp = {
         room: chatRef.current.room,
         participants: [...chatRef.current.participants],
         messages: [...chatRef.current.messages],
       }
 
-      console.log('recieved', temp)
       temp.messages.push(message);
       setChat(temp);
     })
@@ -147,7 +143,6 @@ function Chat() {
         })(),
       }
 
-      console.log("receiving");
       let temp = {
         room: chat.room,
         participants: [...chat.participants],

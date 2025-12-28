@@ -19,7 +19,6 @@ function Home() {
 
     useEffect(()=> {
         if(location.state){
-            console.log('rediret')
             setAlert('room is full try joining another room')
             setOpen(true);
         }
